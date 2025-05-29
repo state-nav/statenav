@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="STATE-NAV: Stability-Aware Traversability Estimation for Bipedal Navigation on Rough Terrain">
+  <meta name="keywords" content="STATE-NAV">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>STATE-NAV: Stability-Aware Traversability Estimation for Bipedal Navigation on Rough Terrain</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+  <!-- <link rel="icon" href="./static/images/.png"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <!-- <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a> -->
+
+      <!-- <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://song-jingyu.github.io/CRKD/">
+            CRKD
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div> -->
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">STATE-NAV: Stability-Aware Traversability Estimation for Bipedal Navigation on Rough Terrain</h1>
+            <h2 class="subtitle is-4">Under Review</h2>
+          <div class="is-size-5 publication-authors">
+            <!-- <span class="author-block">
+              <a href="https://yzwfromk.github.io/">Ziwon Yoon</a><sup>1</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://lawrencez22.github.io/">Lawrence Y. Zhu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ganlumomo.github.io/">Lu Gan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+               <a href="https://lab-idar.gatech.edu/principal-nvestigator/">Ye Zhao</a><sup>1✉</sup>
+            </span> -->
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>✉</sup>Corresponding Author</span>
+            <!-- <span class="author-block"><sup>†</sup>Corresponding Author</span> -->
+            <span class="author-block"><sup>1</sup>Georgia Institute of Technology</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/file/d/1_Fwi3V3VBiS9kj0qI4Y8gdEfOSH0qGlC/view?usp=sharing" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Video (availalbe now!)</span>
+                </a>
+            </span>
+            <!-- Arxiv Link. -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>Paper (coming on Jun)</span>
+                </a>
+            </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming on Jun)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser_video.mp4"
+                type="video/mp4">
+      </video>
+      <div style="height: 50px;"></div> <!-- Spacer div -->
+      <!-- <video id="teaser" autoplay muted loop playsinline 
+       style="display: block; margin: 0 auto; width: 80%; max-width: 800px; height: auto; margin-bottom: 50px;">
+      <source src="./static/videos/new_video_demo.mp4" type="video/mp4">
+      </video> -->
+      <img src="./static/images/teaser.png" alt="GaussianFormer3D" style="width: auto; height: auto;">
+      <h2 class="subtitle has-text-centered">
+        <p>We propose the first learning-based humanoid traversability estimation framework for generalized rough terrain navigation by incorporating bipedal locomotion stability. </p>
+        <p>Traversability is defined as the fastest command velocity that keeps instability below a user-defined limit, and utilized by hierarchical TravRRT*-MPC planning framework.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          Bipedal robots have advantages in maneuvering human-centered environments, but face greater failure risk compared to other stable mobile plarforms such as wheeled or quadrupedal robots.
+          While learning-based traversability has been widely studied for these platforms, bipedal traversability has mainly relied on manually designed rules with limited consideration of locomotion stability on rough terrain.
+          In this work, we present the first learning-based traversability estimation and risk-sensitive navigation framework for bipedal robots operating in diverse, uneven environments.
+          TravFormer, a transformer-based neural network, is trained to predict bipedal instability with uncertainty, enabling risk-aware and adaptive planning.
+          Based on the network, we define traversability as stability-aware command velocity—the fastest command velocity that keeps instability below a user-defined limit.
+          This velocity-based traversability is integrated into a hierarchical planner that combines traversability-informed Rapid Random Tree Star (TravRRT*) for time-efficient planning and Model Predictive Control (MPC) for safe execution.
+          We validate our method in MuJoCo simulation, demonstrating improved navigation performance, with enhanced robustness and time efficiency across varying terrains compared to existing methods.
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<!-- Method section -->
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            We propose a novel multi-modal Gaussian-based semantic occupancy prediction framework. 
+            By integrating LiDAR and camera data, our method significantly outperforms camera-only baselines with similar memory usage.
+          </p>
+          <p>
+            We design a voxel-to-Gaussian initialization module to provide 3D Gaussians with geometry priors from LiDAR data. 
+            We also develop an enhanced 3D deformable attention mechanism to update Gaussians by aggregating LiDAR-camera fusion features in a lifted 3D space. 
+          </p>
+          <p>
+            We present extensive evaluations on two on-road datasets, nuScenes-SurroundOcc and nuScenes-Occ3D, and one off-road dataset, RELLIS3D-WildOcc. 
+            Results show that our method performs on par with state-of-the-art dense grid-based methods while having reduced memory consumption and improved efficiency.
+        </div>
+      </div>
+    </div>
+    <img src="./static/images/gaussianformer3d_method.jpg" alt="GaussianFormer3D Method" style="width: 100%; height: auto;">
+  </div>
+</section> -->
+
+<!-- Results section -->
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Quantitative Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            3D semantic occupancy prediction performance on the on-road <b>nuScenes-SurroundOcc</b> validation set.
+          </p>
+          <img src="./static/images/surroundocc.png" alt="nuScenes-SurroundOcc" style="width: 100%; height: auto; margin-bottom: 30px;">
+          
+          <p>
+            3D semantic occupancy prediction performance on the on-road <b>nuScenes-Occ3D</b> validation set.
+          </p>
+          <img src="./static/images/occ3d.png" alt="nuScenes-Occ3D" style="width: 100%; height: auto; margin-bottom: 30px;">
+          
+          <div class="columns is-centered">
+            <div class="column is-half has-text-centered">
+              <p>3D semantic occupancy prediction performance on the off-road <b>RELLIS3D-WildOcc</b> test set.</p>
+              <img src="./static/images/wildocc.png" alt="RELLIS3D-WildOcc" style="width: 100%; height: auto;">
+            </div>
+
+            <div class="column is-half has-text-centered">
+              <p>Efficiency evaluation and comparison on the <b>nuScenes-SurroundOcc</b> validation set during inference.</p>
+              <img src="./static/images/efficiency.png" alt="efficiency" style="width: 100%; height: auto;">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+<!-- Results section -->
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Quantitative Results</h2>
+        <div class="content has-text-justified">
+
+          <div class="image-container" style="position: relative; display: inline-block; width: 100%; margin-bottom: 30px;">
+            <p class="centered-text">3D semantic occupancy prediction performance on the on-road <b>nuScenes-SurroundOcc</b> validation set.</p>
+            <img src="./static/images/surroundocc.png" alt="nuScenes-SurroundOcc" style="width: 100%; height: auto;">
+          </div>
+
+
+          <div class="columns is-centered">
+            <div class="column is-half has-text-centered">
+              <p>3D semantic occupancy prediction performance on the off-road <b>RELLIS3D-WildOcc</b> validation and test sets.</p>
+              <img src="./static/images/wildocc.png" alt="RELLIS3D-WildOcc" style="width: 110%; height: auto;">
+            </div>
+
+            <div class="column is-half has-text-centered">
+              <p>Efficiency evaluation and comparison on the <b>nuScenes-SurroundOcc</b> validation set during inference.</p>
+              <img src="./static/images/efficiency_new.png" alt="efficiency" style="width: 100%; height: auto;">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+
+
+<!-- Results section -->
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Qualitative Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            Visualization on the on-road <b>nuScenes</b> validation set.
+          </p>
+          <img src="./static/images/occ3d_vis.jpg" alt="nuScenes-Occ3D-vis" style="width: 100%; height: auto; margin-bottom: 30px;">
+          <p>
+            Visualization comparison with GaussianFormer.
+          </p>
+          <img src="./static/images/gaussian_comparison_wo_bbox.jpg" alt="nuScenes-gaussian-comparison" style="width: 100%; height: auto; margin-bottom: 30px;">
+          <p>
+            Visualization on the off-road <b>RELLIS3D</b> dataset.
+          </p>
+          <img src="./static/images/wildocc_vis.jpg" alt="RELLIS3D-WildOcc-vis" style="width: 100%; height: auto; margin-bottom: 30px;">
+          </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{yoon2025state,
+  author    = {Yoon, Ziwon and Zhu, Lawrence and Lu, Gan and Zhao, Ye},
+  title     = {STATE-NAV: Stability-Aware Traversability Estimation for Bipedal Navigation on Rough Terrain},
+  year      = {2025},
+  note      = {Preprint available soon on arXiv.}
+}</code></pre>
+  </div>
+</section>
+
+
+<!-- cite nerfies project page https://github.com/nerfies/nerfies.github.io -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page is modified based on <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
